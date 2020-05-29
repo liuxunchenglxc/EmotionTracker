@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "inheritEnvironments": [
+        "msvc_x86"
+      ],
+      "name": "x86-Debug",
+      "includePath": [
+        "E:\\android-sdk-windows\\ndk-bundle\\sysroot\\usr\\include",
+        "${env.INCLUDE}",
+        "${workspaceRoot}\\**",
+        "C:\\Program Files\\Java\\jdk1.8.0_144\\include"
+      ],
+      "defines": [
+        "WIN32",
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+      ],
+      "intelliSenseMode": "windows-msvc-x86"
+    }
+  ]
+}

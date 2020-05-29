@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:activity="io.fotoapparat.sample.MainActivity">
+
+    <io.fotoapparat.facedetector.view.CameraOverlayLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <io.fotoapparat.view.CameraView
+            android:id="@+id/camera_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <io.fotoapparat.facedetector.view.RectanglesView
+            android:id="@+id/rectanglesView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:rectanglesColor="@color/colorAccent"
+            app:rectanglesStrokeWidth="2dp"
+            tools:visibility="visible" />
+
+    </io.fotoapparat.facedetector.view.CameraOverlayLayout>
+
+    <TextView
+        android:id="@+id/no_permission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="50dp"
+        android:text="No Camera permission granted."
+        android:textSize="20sp"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/switchCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:layout_margin="8dp"
+        android:text="Switch camera" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/facetextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Face Track"
+            app:layout_constraintBottom_toTopOf="@+id/eyetextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timetextView" />
+
+        <TextView
+            android:id="@+id/eyetextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eye Detect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/facetextView" />
+
+        <TextView
+            android:id="@+id/offloadtextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task Offloading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eyetextView" />
+
+        <TextView
+            android:id="@+id/timetextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Process Time"
+            app:layout_constraintBottom_toTopOf="@+id/facetextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/emotiontextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Face Expression"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/offloadtextView" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

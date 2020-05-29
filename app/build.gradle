@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+
+android {
+    signingConfigs {
+        刘迅承 {
+            storeFile file('C:\\Users\\Mechrevo\\EmotionTrackerSignedFile.jks')
+            storePassword 'liu123xun!@#'
+            keyAlias = 'emotion_tracker_key'
+            keyPassword 'liu123xun!@#'
+        }
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.calculator.liuxuncheng.emotiontracker"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            moduleName "facetracker_cpp"
+            abiFilters "armeabi-v7a","arm64-v8a"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
+    testImplementation 'junit:junit:4.12'
+    implementation 'io.fotoapparat:facedetector:1.0.0'
+    implementation 'io.fotoapparat.fotoapparat:library:1.4.0'
+    implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:0.0.0-nightly'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+repositories {
+    maven {
+        url  "http://dl.bintray.com/fotoapparat/fotoapparat"
+    }
+    maven { url 'https://jitpack.io' }
+    mavenCentral()
+}
+
+task cv_ndkBuild(type:Exec,group:"NDK Build",description:"Compile JNI source with NDK"){
+    Properties properties = new Properties();
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def ndkDir=properties.getProperty("ndk.dir")
+    commandLine "$ndkDir\\ndk-build.cmd","-C",file("src/main/jni").absolutePath
+}
+
+task gen_jni_h(type:Exec) {
+    def javaDir=file("src/main/java").absolutePath
+    def jniDir=file("src/main/jni").absolutePath
+    Properties properties = new Properties();
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def sdkDir=properties.getProperty("sdk.dir")
+    commandLine "javah","-d","$jniDir","-classpath","$sdkDir\\platforms\\android-28\\android.jar;$javaDir","-jni","com.calculator.liuxuncheng.emotiontracker.FaceTrackProccesor"
+}
