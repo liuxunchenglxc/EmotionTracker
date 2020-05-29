@@ -1,3 +1,3 @@
 # EmotionTracker
 
-It is open source for reader of our paper.
+It is open source for the readers of our paper.
