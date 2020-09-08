@@ -22,4 +22,4 @@ It is an `Android Studio Project`, including `C++` and `Java` code. If you want 
 
 We choose OpenCV 4.1.1 to build it.
 
-This project contain a trial key of Face++. The trial key is a free version of Face++, we do NOT guarantee the effectiveness of public AI-as-a-Service (Face++).
+This project contain a trial key of Face++. The trial key is a free version of Face++, so we do NOT guarantee the effectiveness of public AI-as-a-Service (Face++).
