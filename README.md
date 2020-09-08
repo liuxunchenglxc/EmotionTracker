@@ -12,15 +12,15 @@ It is an `Android Studio Project`, including `C++` and `Java` code. If you want 
 
 ---native
 
-   |
+---|
    
-   ---3rdparty
+---|--3rdparty
    
-   ---jni
+---|--jni
    
-   ---libs
+---|--libs
    
-   ---staticlibs
+---|--staticlibs
 
 We choose OpenCV 4.1.1 to build it.
 
