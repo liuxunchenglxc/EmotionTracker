@@ -1,6 +1,6 @@
 # EmotionTracker
 
-It is open source for the readers of our paper (DOI:10.1145/3394171.3414447).
+It is open source for the readers of our paper (DOI: 10.1145/3394171.3414447).
 
 ## About Source Code
 
