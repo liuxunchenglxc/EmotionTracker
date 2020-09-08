@@ -6,21 +6,19 @@ It is open source for the readers of our paper.
 
 It is an `Android Studio Project`, including `C++` and `Java` code. If you want to build `C++` code, you need add `OpenCV` lib to project like this:
 
----app
+|--app
 
----...
+|--...
 
----native
-
----|
+|--native
    
----|--3rdparty
+|--|--3rdparty
    
----|--jni
+|--|--jni
    
----|--libs
+|--|--libs
    
----|--staticlibs
+|--|--staticlibs
 
 We choose OpenCV 4.1.1 to build it.
 
