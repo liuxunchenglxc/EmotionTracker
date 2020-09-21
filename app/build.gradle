@@ -3,14 +3,6 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 
 android {
-    signingConfigs {
-        刘迅承 {
-            storeFile file('C:\\Users\\Mechrevo\\EmotionTrackerSignedFile.jks')
-            storePassword 'liu123xun!@#'
-            keyAlias = 'emotion_tracker_key'
-            keyPassword 'liu123xun!@#'
-        }
-    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.calculator.liuxuncheng.emotiontracker"
